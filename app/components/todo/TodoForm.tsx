@@ -4,6 +4,7 @@ import { useState } from "react";
 import ClickButton from "@/app/components/ClickButton";
 import Input from "@/app/components/Input";
 import TagsInput from "@/app/components/tag/TagsInput";
+import { handleClientScriptLoad } from "next/script";
 
 interface TodoFormProps {
     onSaveTodo: (value: string, tags: string[]) => void;
@@ -29,7 +30,10 @@ const TodoForm = ({
                 value={inputValue}
                 onChange={setInputValue}
                 placeholder="Enter Todo..." />
-
+             <TagsInput
+                tags={tags}
+                autoCompleteTags={autoCompleteTags}
+                placeholder="Enter Tags..." />
             <ClickButton
                 label="Add"
                 onClick={addClickHandler}
